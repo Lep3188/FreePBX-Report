@@ -22,7 +22,7 @@ Dim ie, frm, StoredRawData
 
 Set ie = CreateObject("InternetExplorer.Application")
 ie.Visible = True
-ie.Navigate "http://10.5.1.2/admin/config.php?display=logfiles"
+ie.Navigate "http://FreePBX_Path"
 ie.Visible=false 
 WScript.Sleep 20000 'Wait 8 seconds
 
@@ -38,15 +38,6 @@ WScript.Sleep 8000 'Wait 8 seconds
 StoredRawData = ie.document.getElementById("log_view").innerText 'Stores the desired data
 
 ie.Quit 'Closes Internet Explorer
-
-'MsgBox StoredRawData  'Para mosrtrar la data cruda
-
-'DataLines = Split(StoredRawData,vbCrLf)
-
-'lineNb = UBound(DataLines) 'Used to count the ammount of lines in the data extract.
-
-'MsgBox lineNb 'Displays the ammount of lines gathered
-'MsgBox DataLines(1)
 
 'ManageData()
 FileSave()
